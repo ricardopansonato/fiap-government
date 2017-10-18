@@ -1,1 +1,1 @@
-web: java -jar ./build/libs/complete.jar
+web: java -Dserver.port=$PORT -jar ./build/libs/complete.jar
