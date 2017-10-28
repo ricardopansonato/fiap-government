@@ -5,7 +5,7 @@ import java.util.List;
 
 import br.com.fiap.model.Tax;
 
-public class TaxRepository {
+public class TaxesRepository {
 	private final static List<Tax> TAXES = new ArrayList<>();
 	
 	public static List<Tax> findAll() {

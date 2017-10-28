@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import br.com.fiap.endpoint.InvoicePortImpl;
-import br.com.fiap.endpoint.TaxPortImpl;
+import br.com.fiap.endpoint.TaxesPortImpl;
 
 @Configuration
 public class WebServiceConfig {
@@ -26,8 +26,8 @@ public class WebServiceConfig {
 	
 	@Bean
 	public Endpoint tax() {
-		EndpointImpl endpoint = new EndpointImpl(bus, new TaxPortImpl());
-		endpoint.publish("/Tax");
+		EndpointImpl endpoint = new EndpointImpl(bus, new TaxesPortImpl());
+		endpoint.publish("/Taxes");
 		return endpoint;
 	}
 }

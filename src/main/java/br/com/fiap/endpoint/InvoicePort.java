@@ -14,11 +14,11 @@ import br.com.fiap.endpoint.response.InvoicesResponse;
 @WebService(name = "Invoice", targetNamespace = "http://br.com.fiap.government/")
 public interface InvoicePort {
 	
-    @WebResult(name = "return", targetNamespace = "")
+    @WebResult(name = "generate", targetNamespace = "")
     @WebMethod(action = "urn:GenerateInvoice")
     InvoiceResponse generate(InvoiceRequest body);
     
-    @WebResult(name = "return", targetNamespace = "")
+    @WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListInvoice")
     InvoicesResponse list();
 }

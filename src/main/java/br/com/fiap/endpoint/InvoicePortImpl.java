@@ -14,6 +14,7 @@ import br.com.fiap.endpoint.response.InvoicesResponse;
 import br.com.fiap.model.Invoice;
 import br.com.fiap.model.User;
 import br.com.fiap.repository.InvoiceRepository;
+import br.com.fiap.repository.TaxesRepository;
 import br.com.fiap.repository.UserRepository;
 import br.com.fiap.util.SoapUtil;
 
@@ -28,7 +29,7 @@ public class InvoicePortImpl implements InvoicePort {
         String username = SoapUtil.valueFromHeader(soapMessage, "username");
 		User user = UserRepository.findByUsername(username);
 		
-		Invoice invoice = new Invoice(user, body);
+		Invoice invoice = new Invoice(user, body, TaxesRepository.findAll());
         InvoiceRepository.save(user.getUsername(), invoice);
 		
         return new InvoiceResponse(invoice);

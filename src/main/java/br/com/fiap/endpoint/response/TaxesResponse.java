@@ -5,13 +5,13 @@ import java.util.List;
 
 import br.com.fiap.model.Tax;
 
-public class TaxResponse {
+public class TaxesResponse {
 	private List<Tax> taxes = new ArrayList<>();
 
-	public TaxResponse() {
+	public TaxesResponse() {
 	}
 	
-	public TaxResponse(List<Tax> taxes) {
+	public TaxesResponse(List<Tax> taxes) {
 		super();
 		this.taxes = taxes;
 	}
