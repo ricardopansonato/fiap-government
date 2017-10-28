@@ -5,7 +5,6 @@ import javax.jws.WebService;
 
 import org.apache.cxf.interceptor.InInterceptors;
 
-import br.com.fiap.endpoint.request.TaxesRequest;
 import br.com.fiap.endpoint.response.TaxesResponse;
 
 @InInterceptors(interceptors = {"br.com.fiap.interceptors.LoginInterceptor" })
@@ -14,7 +13,7 @@ public interface TaxesPort {
     
 	@WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListTaxes")
-    TaxesResponse generate(TaxesRequest body);
+    TaxesResponse list();
 }
 
 

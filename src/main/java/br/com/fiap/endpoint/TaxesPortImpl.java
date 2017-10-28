@@ -13,7 +13,7 @@ import br.com.fiap.repository.TaxesRepository;
 public class TaxesPortImpl implements TaxesPort {
 	
 	@Override
-	public TaxesResponse generate(TaxesRequest body) {
+	public TaxesResponse list() {
 		List<Tax> taxes = TaxesRepository.findAll();
 		return new TaxesResponse(taxes);
 	}
