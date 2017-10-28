@@ -19,5 +19,8 @@ public class TaxesResponse {
 	public List<Tax> getTaxes() {
 		return taxes;
 	}
-	
+
+	public void setTaxes(List<Tax> taxes) {
+		this.taxes = taxes;
+	}
 }

@@ -8,10 +8,6 @@ import br.com.fiap.model.Tax;
 public class TaxesRepository {
 	private final static List<Tax> TAXES = new ArrayList<>();
 	
-	public static List<Tax> findAll() {
-		return TAXES;
-	}
-	
 	static {
 		Tax tax1 = new Tax();
 		tax1.setName("PIS");
@@ -27,5 +23,9 @@ public class TaxesRepository {
 		tax3.setName("ISS");
 		tax3.setPercent(6.0);
 		TAXES.add(tax3);
+	}
+	
+	public static List<Tax> findAll() {
+		return TAXES;
 	}
 }

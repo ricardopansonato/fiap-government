@@ -14,6 +14,8 @@ public class TaxesPortImpl implements TaxesPort {
 	@Override
 	public TaxesResponse list() {
 		List<Tax> taxes = TaxesRepository.findAll();
+		TaxesResponse response = new TaxesResponse();
+		response.setTaxes(taxes);
 		return new TaxesResponse(taxes);
 	}
 }
