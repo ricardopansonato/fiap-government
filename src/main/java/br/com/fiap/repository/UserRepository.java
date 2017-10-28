@@ -28,6 +28,7 @@ public class UserRepository {
 	static {
 		USERS.put("financeiro", createUser("financeiro", "financeiro", "123.456.789-01", Type.CPF));
 		USERS.put("estabelecimento", createUser("estabelecimento", "estabelecimento", "223.456.789-01", Type.CPF));
+		USERS.put("transportadora", createUser("transportadora", "transportadora", "323.456.789-01", Type.CPF));
 	}
 	
 	public static User findByUsername(final String username) {
