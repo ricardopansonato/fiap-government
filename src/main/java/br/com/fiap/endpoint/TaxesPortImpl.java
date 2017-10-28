@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.jws.WebService;
 
-import br.com.fiap.endpoint.request.TaxesRequest;
 import br.com.fiap.endpoint.response.TaxesResponse;
 import br.com.fiap.model.Tax;
 import br.com.fiap.repository.TaxesRepository;
