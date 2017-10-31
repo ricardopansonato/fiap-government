@@ -11,12 +11,14 @@ public class Invoice {
 	private Double value;
 	private Double valueWithTax;
 	private List<Tax> taxes = new ArrayList<>();
+	private boolean issued;
+	private String detail;
 	
 	public Invoice() {
 	}
 	
 	public Invoice(User user, InvoiceRequest request) {
-		this.source = user.getDocument();
+		//this.source = user.getDocument();
 		this.recipient = request.getDocument();
 		this.value = request.getValue();
 	}
@@ -68,5 +70,21 @@ public class Invoice {
 
 	public void setValueWithTax(Double valueWithTax) {
 		this.valueWithTax = valueWithTax;
+	}
+
+	public boolean isIssued() {
+		return issued;
+	}
+
+	public void setIssued(boolean issued) {
+		this.issued = issued;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
 	}
 }

@@ -22,4 +22,14 @@ public class InvoiceRepository {
 		invoices.add(invoice);
 		INVOICES.put(username, invoices);
 	}
+	
+	public static Invoice findByUsernameCPF(final String username, final String cpf) {
+		
+		for(Invoice invoice :  INVOICES.get(username)) {
+			if(invoice.getSource().getValue().equals(cpf)) {
+				return invoice;
+			}
+		}
+		return null;
+	}
 }
