@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de cobrancaRequestPojo complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o contedo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="cobrancaRequestPojo">
@@ -37,7 +37,7 @@ public class CobrancaRequestPojo {
     protected double valor;
 
     /**
-     * Obtém o valor da propriedade cpfCnpj.
+     * Obtem o valor da propriedade cpfCnpj.
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class CobrancaRequestPojo {
     }
 
     /**
-     * Obtém o valor da propriedade valor.
+     * Obtem o valor da propriedade valor.
      * 
      */
     public double getValor() {

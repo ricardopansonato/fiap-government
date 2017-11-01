@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de financeiraFault complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="financeiraFault">
@@ -37,7 +37,7 @@ public class FinanceiraFault {
     protected String mensagem;
 
     /**
-     * Obtém o valor da propriedade codigo.
+     * Obtem o valor da propriedade codigo.
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class FinanceiraFault {
     }
 
     /**
-     * Obtém o valor da propriedade mensagem.
+     * Obtem o valor da propriedade mensagem.
      * 
      * @return
      *     possible object is

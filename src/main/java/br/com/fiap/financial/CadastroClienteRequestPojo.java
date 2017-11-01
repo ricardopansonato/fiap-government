@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de cadastroClienteRequestPojo complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="cadastroClienteRequestPojo">
@@ -37,7 +37,7 @@ public class CadastroClienteRequestPojo {
     protected String nome;
 
     /**
-     * Obtém o valor da propriedade cpfCnpj.
+     * Obtem o valor da propriedade cpfCnpj.
      * 
      * @return
      *     possible object is
@@ -61,7 +61,7 @@ public class CadastroClienteRequestPojo {
     }
 
     /**
-     * Obtém o valor da propriedade nome.
+     * Obtem o valor da propriedade nome.
      * 
      * @return
      *     possible object is

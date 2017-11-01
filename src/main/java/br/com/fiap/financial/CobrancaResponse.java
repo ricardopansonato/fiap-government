@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlType;
 /**
  * <p>Classe Java de cobrancaResponse complex type.
  * 
- * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+ * <p>O seguinte fragmento do esquema especifica o conteudo esperado contido dentro desta classe.
  * 
  * <pre>
  * &lt;complexType name="cobrancaResponse">
@@ -34,7 +34,7 @@ public class CobrancaResponse {
     protected CobrancaResponsePojo resultadoCobranca;
 
     /**
-     * Obtém o valor da propriedade resultadoCobranca.
+     * Obtem o valor da propriedade resultadoCobranca.
      * 
      * @return
      *     possible object is
