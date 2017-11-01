@@ -1,16 +1,8 @@
 package br.com.fiap.financial;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.handler.MessageContext;
-
 public class Teste {
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 
 		FinanceiroWebService port = new FinanceiroWebServiceService().getFinanceiroWebServicePort();
 
@@ -32,6 +24,6 @@ public class Teste {
 			e1.printStackTrace();
 		}
 
-	}
+	}*/
 
 }
