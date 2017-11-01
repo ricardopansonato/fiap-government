@@ -24,7 +24,7 @@ import br.com.fiap.util.SoapUtil;
 public class InvoicePortImpl implements InvoicePort {
 
 	@Override
-	public InvoiceResponse generate(InvoiceRequest body) {
+	public InvoiceResponse generate(InvoiceRequest body) throws Exception {
 		Message message = PhaseInterceptorChain.getCurrentMessage();
         SoapMessage soapMessage = (SoapMessage) message;
         
@@ -42,12 +42,15 @@ public class InvoicePortImpl implements InvoicePort {
 	        	if(result) {
 	        		invoice.setIssued(true);
 	        		InvoiceRepository.save(user.getUsername(), invoice);
+	        	} else {
+	        		throw new Exception("Saldo Zerado!");
 	        	}
 	        }
 		} catch (FinanceiraException e) {
 			invoice = null;
 			invoice = new Invoice();
 			invoice.setDetail(e.getMessage());
+			throw new Exception(e.getMessage());
 		}
         
         return new InvoiceResponse(invoice);

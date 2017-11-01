@@ -16,7 +16,7 @@ public interface InvoicePort {
 	
     @WebResult(name = "generate", targetNamespace = "")
     @WebMethod(action = "urn:GenerateInvoice")
-    InvoiceResponse generate(InvoiceRequest body);
+    InvoiceResponse generate(InvoiceRequest body) throws Exception;
     
     @WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListInvoice")
