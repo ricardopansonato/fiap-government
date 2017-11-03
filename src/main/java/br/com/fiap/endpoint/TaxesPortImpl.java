@@ -2,6 +2,7 @@ package br.com.fiap.endpoint;
 
 import java.util.List;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import br.com.fiap.endpoint.response.TaxesResponse;
@@ -12,7 +13,8 @@ import br.com.fiap.repository.TaxesRepository;
 public class TaxesPortImpl implements TaxesPort {
 	
 	@Override
-	public TaxesResponse list() {
+	public TaxesResponse list(@WebParam(header=true) String username, 
+			   				 @WebParam(header=true) String password) {
 		List<Tax> taxes = TaxesRepository.findAll();
 		TaxesResponse response = new TaxesResponse();
 		response.setTaxes(taxes);

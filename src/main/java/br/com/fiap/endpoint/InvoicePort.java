@@ -1,6 +1,7 @@
 package br.com.fiap.endpoint;
 
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
@@ -16,9 +17,12 @@ public interface InvoicePort {
 	
     @WebResult(name = "generate", targetNamespace = "")
     @WebMethod(action = "urn:GenerateInvoice")
-    InvoiceResponse generate(InvoiceRequest body);
+    InvoiceResponse generate(@WebParam(header=false) InvoiceRequest body, 
+    							@WebParam(header=true, name="username") String username, 
+    						    @WebParam(header=true, name="password") String password);
     
     @WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListInvoice")
-    InvoicesResponse list();
+    InvoicesResponse list(@WebParam(header=true, name="username") String username, 
+			   			 @WebParam(header=true, name="username") String password);
 }

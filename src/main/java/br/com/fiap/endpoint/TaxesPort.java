@@ -1,5 +1,6 @@
 package br.com.fiap.endpoint;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 
@@ -13,7 +14,8 @@ public interface TaxesPort {
     
 	@WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListTaxes")
-    TaxesResponse list();
+    TaxesResponse list(@WebParam(header=true) String username, 
+			   		  @WebParam(header=true) String password);
 }
 
 
