@@ -13,8 +13,8 @@ import br.com.fiap.repository.TaxesRepository;
 public class TaxesPortImpl implements TaxesPort {
 	
 	@Override
-	public TaxesResponse list(@WebParam(header=true) String username, 
-			   				 @WebParam(header=true) String password) {
+	public TaxesResponse list(@WebParam(header=true, name="username") String username, 
+			   				 @WebParam(header=true, name="password") String password) {
 		List<Tax> taxes = TaxesRepository.findAll();
 		TaxesResponse response = new TaxesResponse();
 		response.setTaxes(taxes);

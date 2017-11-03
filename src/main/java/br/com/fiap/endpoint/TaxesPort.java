@@ -14,8 +14,8 @@ public interface TaxesPort {
     
 	@WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListTaxes")
-    TaxesResponse list(@WebParam(header=true) String username, 
-			   		  @WebParam(header=true) String password);
+    TaxesResponse list(@WebParam(header=true, name="username") String username, 
+			   		  @WebParam(header=true, name="password") String password);
 }
 
 

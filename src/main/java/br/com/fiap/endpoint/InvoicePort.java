@@ -19,10 +19,11 @@ public interface InvoicePort {
     @WebMethod(action = "urn:GenerateInvoice")
     InvoiceResponse generate(@WebParam(header=false) InvoiceRequest body, 
     							@WebParam(header=true, name="username") String username, 
-    						    @WebParam(header=true, name="password") String password);
+    						    @WebParam(header=true, name="password") String password) throws Exception;
+
     
     @WebResult(name = "list", targetNamespace = "")
     @WebMethod(action = "urn:ListInvoice")
     InvoicesResponse list(@WebParam(header=true, name="username") String username, 
-			   			 @WebParam(header=true, name="username") String password);
+			   			 @WebParam(header=true, name="password") String password);
 }

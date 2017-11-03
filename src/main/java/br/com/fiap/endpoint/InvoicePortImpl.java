@@ -8,6 +8,8 @@ import javax.jws.WebService;
 import br.com.fiap.endpoint.request.InvoiceRequest;
 import br.com.fiap.endpoint.response.InvoiceResponse;
 import br.com.fiap.endpoint.response.InvoicesResponse;
+import br.com.fiap.financial.FinanceiraException;
+import br.com.fiap.financial.charge.Charge;
 import br.com.fiap.model.Invoice;
 import br.com.fiap.model.User;
 import br.com.fiap.repository.InvoiceRepository;
@@ -18,24 +20,43 @@ import br.com.fiap.repository.UserRepository;
 public class InvoicePortImpl implements InvoicePort {
 
 	@Override
-	public InvoiceResponse generate(@WebParam(header=false) InvoiceRequest body, 
-								   @WebParam(header=true, name="username") String username, 
-								   @WebParam(header=true, name="username") String password) {
+	public InvoiceResponse generate(@WebParam(header = false) InvoiceRequest body,
+			@WebParam(header = true, name = "username") String username,
+			@WebParam(header = true, name = "password") String password) throws Exception {
 		User user = UserRepository.findByUsername(username);
-		
+
 		Invoice invoice = new Invoice(user, body, TaxesRepository.findAll());
-        InvoiceRepository.save(user.getUsername(), invoice);
-		
-        return new InvoiceResponse(invoice);
+
+		double valueF = invoice.getValueWithTax() - invoice.getValue();
+
+		try {
+			if (valueF > 0) {
+				Charge charge = new Charge();
+				boolean result = charge.doCharge(invoice.getRecipient().getValue(), valueF);
+				if (result) {
+					invoice.setIssued(true);
+					InvoiceRepository.save(user.getUsername(), invoice);
+				} else {
+					throw new Exception("Saldo Zerado!");
+				}
+			}
+		} catch (FinanceiraException e) {
+			invoice = null;
+			invoice = new Invoice();
+			invoice.setDetail(e.getMessage());
+			throw new Exception(e.getMessage());
+		}
+
+		return new InvoiceResponse(invoice);
 	}
 
 	@Override
-	public InvoicesResponse list(@WebParam(header=true, name="username") String username, 
-			   				    @WebParam(header=true, name="username") String password) {
+	public InvoicesResponse list(@WebParam(header = true, name = "username") String username,
+			@WebParam(header = true, name = "password") String password) {
 		List<Invoice> invoices = InvoiceRepository.findByUsername(username);
-        InvoicesResponse invoicesResponse = new InvoicesResponse();
-        invoicesResponse.setInvoices(invoices);
-		
+		InvoicesResponse invoicesResponse = new InvoicesResponse();
+		invoicesResponse.setInvoices(invoices);
+
 		return invoicesResponse;
 	}
 }
